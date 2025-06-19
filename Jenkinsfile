@@ -41,15 +41,12 @@ pipeline {
             }
         }
         
-       stage("Debug: Check Dependency-Check Path") {
-    steps {
-        script {
-            def dcPath = tool name: 'DP', type: 'DependencyCheckInstallation'
-            echo " Dependency-Check tool path resolved to: ${dcPath}"
+    stage("OWASP Dependency Check"){
+            steps{
+                dependencyCheck additionalArguments: '--scan ./ --format HTML ', odcInstallation: 'DP'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+            }
         }
-    }
-}
-
         
          stage("Build"){
             steps{
