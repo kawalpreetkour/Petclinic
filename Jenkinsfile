@@ -35,7 +35,8 @@ pipeline {
                 withSonarQubeEnv('SonarQube-Server') {
                     sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
                     -Dsonar.java.binaries=. \
-                    -Dsonar.projectKey=Petclinic '''
+                    -Dsonar.projectKey=Petclinic 
+                    -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml '''
     
                 }
             }
