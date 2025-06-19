@@ -54,6 +54,7 @@ pipeline {
             }
         }
         
+/*
         stage("Docker Build & Push"){
             steps{
                 script{
@@ -66,7 +67,8 @@ pipeline {
                 }
             }
         }
-        
+ */
+       
         stage("TRIVY"){
             steps{
                 sh " trivy image adijaiswal/pet-clinic123:latest"
