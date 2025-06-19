@@ -33,10 +33,13 @@ pipeline {
         stage("Sonarqube Analysis "){
             steps{
                 withSonarQubeEnv('SonarQube-Server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
+                    sh ''' 
+                    $SCANNER_HOME/bin/sonar-scanner \
+                    -Dsonar.projectName=Petclinic \
                     -Dsonar.java.binaries=. \
-                    -Dsonar.projectKey=Petclinic 
-                    -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml '''
+                    -Dsonar.projectKey=Petclinic \
+                    -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+                    '''
     
                 }
             }
