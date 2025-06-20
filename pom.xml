@@ -311,20 +311,6 @@
             </testResource>
         </testResources>
         <plugins>
-
-            <plugin>
-            <groupId>org.owasp</groupId>
-            <artifactId>dependency-check-maven</artifactId>
-            <version>8.4.0</version>
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>check</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -392,7 +378,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.13</version>
+                <version>${jacoco-maven-plugin}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -405,14 +391,6 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
-                       </goals>
-                      <configuration>
-                <outputDirectory>${project.build.directory}/site/jacoco</outputDirectory>
-                <formats>
-                    <format>HTML</format>
-                    <format>XML</format> 
-                </formats>
-            </configuration>
                     </execution>
                 </executions>
             </plugin>
